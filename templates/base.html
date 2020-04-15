@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        }
+        a{
+          font-family:"Trebuchet MS", Helvetica, sans-serif;
+        }
+        h3{
+          font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        h1{
+          font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        input{
+          width: 290px;
+          height: 35px;
+          align:center;
+        }
+        .center {
+          position: absolute;
+          right: 600px;
+          width: 300px;
+          background-color:#cccccc;
+          padding: 40px;
+        }
+        label{
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        .button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+
+          padding: 16px 32px;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          transition-duration: 0.4s;
+          cursor: pointer;
+        }
+
+        .button1 {
+          background-color: #5cd65c;
+          color: black;
+          width:300px;
+          height: 50px;
+        }
+
+        .button1:hover {
+          background-color: #2eb82e;
+          color: white;
+        }
+        input[type= text]{
+            border:none;
+        }
+        input[type= password]{
+            border:none;
+        }
+
+
+.child{
+    margin: 0 auto;
+}
+
+</style>
+
+</head>
+<body>
+{% if user != 'You have not signed up yet' %}
+  <br><br><br>
+  <div class = "center">
+      <div class = "child">
+          <h1>Sign up now</h1>
+          <br>
+          <form action="{% url 'signup_'%}" method="post">
+            {% csrf_token %}
+              <label>Username <img src="https://png.pngtree.com/svg/20160523/e84c4b089e.png" height="20px" width="20px"></label><br>
+              <input type="text" name = "username" autocomplete="off"><br><br>
+              <label>Password <img src="https://image.flaticon.com/icons/png/512/61/61457.png" height="20px" width="20px"></label><br>
+              <input type="password" name = "password" autocomplete="off"><br><br>
+              <label>Email <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png" height="25px" width="20px"></label><br>
+              <input type="text" name = "email" autocomplete="off" ><br><br><br><br>
+
+              <button class="button button1" >Submit</button>
+          </form>
+          <br><br><br>
+      </div>
+  </div>
+
+{% else %}
+  <form action="{% url 'sign' %}">
+    <h2>You have not signed up yet</h2>
+    <input type="submit" value="sign up">
+  </form>
+
+
+{% endif %}
+
+{% block content %}
+{% endblock content %}
+</body>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    .checked {
+        color: orange;
+    }
+    .padding{
+        background-color:#cccccc;
+    }
+    a{
+        text-decoration:none;
+        color:darkblue
+    }
+    a:hover{
+        color:blue;
+    }
+    h3{
+        font-family:"Trebuchet MS", Helvetica, sans-serif;
+        color:blue;
+    }
+</style>
+<body>
+{% extends 'searching.html' %}
+{% block content %}
+{% for query,expectation in arranged.items %}
+        <div class = "padding">
+        <h1 class ="title"><a href="{% url 'answer' query %}">{{query}}</a></h1>
+        {% for u,v in average.items %}
+            {% if u == query %}
+                <div class = "star">
+                {% if v == 1 %}
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+
+                {% endif %}
+                {% if v == 2 %}
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+
+                {% endif %}
+                {% if v == 3 %}
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+
+                {% endif %}
+                {% if v == 4 %}
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+
+                {% endif %}
+                {% if v == 5 %}
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                {% endif %}
+                 </div>
+            {% endif %}
+        {% endfor %}
+        {% for x,y in counts.items %}
+            {% if x == query %}
+                <h3>{{y}} reviews</h3>
+            {% endif %}
+        {% endfor %}
+        {% for u,z in s.items %}
+            {% if u == query %}
+                <h3> {{z}}</h3>
+            {% endif %}
+        {% endfor %}
+        {% for n,m in p.items %}
+            {% if n == query %}
+                <h3>Asked by {{m}}</h3>
+            {% endif %}
+        {% endfor %}
+        {% for a,b in x.items %}
+            {% if a == query %}
+                <h3>"{{b}}"</h3>
+            {% endif %}
+        {% endfor %}
+
+
+        </div>
+    </form>
+{% endfor %}
+{% endblock content %}
+</body>
+</html>

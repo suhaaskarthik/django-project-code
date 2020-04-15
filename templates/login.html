@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        }
+        a{
+          font-family:"Trebuchet MS", Helvetica, sans-serif;
+        }
+        h3{
+          font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        h1{
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        input{
+          width: 290px;
+          height: 35px;
+          align:center;
+        }
+        .center {
+          position: absolute;
+          right: 600px;
+          width: 300px;
+          padding: 40px;
+        }
+        .centre{
+          text-align:center;
+        }
+          .button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+
+          padding: 16px 32px;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          transition-duration: 0.4s;
+          cursor: pointer;
+        }
+
+        .button1 {
+          background-color: #5cd65c;
+          color: black;
+          width:300px;
+          height: 50px;
+        }
+
+        .button1:hover {
+          background-color: #2eb82e;
+          color: white;
+        }
+        label{
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        input[type=text]{
+            border:none;
+            padding: 2px;
+        }
+        input[type=password]{
+            border:none;
+            padding: 2px;
+        }
+        .center{
+         background-color:#cccccc;
+        }
+
+</style>
+
+</head>
+<body>
+{% if user != 'You have not signed up yet' %}
+    <br><br><br>
+  <div class = "center">
+      <h1>Login now</h1>
+      <br><br><br>
+      <form action="{% url 'login_'%}" method="post">
+        {% csrf_token %}
+          <label>Username <img src="https://png.pngtree.com/svg/20160523/e84c4b089e.png" height="20px" width="20px"> </label>
+        <input type="text" name = "username_"><br><br>
+          <label>Password <img src="https://image.flaticon.com/icons/png/512/61/61457.png" height="20px" width="20px"></label>
+        <input type="password" name = "password_"><br><br>
+        <button class="button button1">Submit</button>
+      </form>
+      <h3 class="centre"><a href="{% url 'forgotpassword' %}">Forgot password?</a></h3>
+      <h3 class = "centre"><a href="{% url 'sign' %}">Sign up here</a></h3>
+      <br><br><br>
+  </div>
+
+{% else %}
+  <form action="{% url 'sign' %}">
+    <h2>You have not signed up yet</h2>
+    <input type="submit" value="sign up">
+  </form>
+
+
+{% endif %}
+
+{% block content %}
+{% endblock content %}
+</body>

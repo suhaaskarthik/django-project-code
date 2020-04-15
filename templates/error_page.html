@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    h1{
+        font-size: 1000%;
+        font-family:"Trebuchet MS", Helvetica, sans-serif;
+    }
+    h2{
+        font-size:200%;
+        font-family:"Trebuchet MS", Helvetica, sans-serif;
+    }
+    h3{
+        font-size:400%
+        font-family:"Trebuchet MS", Helvetica, sans-serif;
+    }
+    ul{
+        font-family:"Trebuchet MS", Helvetica, sans-serif;
+    }
+</style>
+<body>
+<h1>:( Oooops!</h1>
+<h2>There seems to be an error</h2>
+<ul>
+    <li>Either you have typed the wrong url</li>
+    <li>You forgot to login or signup, you should login to view other reviews</li>
+    <li>There might be an error in our program</li>
+    <a href="{% url 'login' %}">Login here</a>
+    <a href="{% url 'sign' %}">Sign up here</a>
+</ul>
+</body>
+</html>
